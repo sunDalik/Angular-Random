@@ -4,7 +4,7 @@
     </mat-form-field>
     <mat-form-field>
         <input matInput formControlName="days" type="text" placeholder="Days">
-        <mat-error *ngIf="weatherForm.value.days.errors?.max">Free API only allows to get up to 3 days of forecast
+        <mat-error *ngIf="weatherForm.get('days')?.errors?.['max']">Free API only allows to get up to 3 days of forecast
         </mat-error>
     </mat-form-field>
     <button mat-button color="primary" type="submit" [disabled]="weatherForm.invalid">Check weather</button>
@@ -20,4 +20,8 @@
         </app-weather-display-block>
     </div>
 </div>
+
+<h3 *ngIf="weatherData.error" style="color:red">
+    {{weatherData.error.message}}
+</h3>
 <div *ngIf="false">{{weatherData|json}}</div>

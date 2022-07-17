@@ -15,8 +15,8 @@ export class WeatherAppComponent implements OnInit {
 
   ngOnInit(): void {
     this.weatherForm = new FormGroup({
-      city: new FormControl("Lol"),
-      days: new FormControl(3, [Validators.min(0), Validators.max(3)])
+      city: new FormControl("Lol", [Validators.required]),
+      days: new FormControl(3, [Validators.min(0), Validators.max(3), Validators.required])
     });
   }
 
