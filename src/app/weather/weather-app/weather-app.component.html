@@ -1,0 +1,14 @@
+<form [formGroup]="weatherForm" (ngSubmit)="onSubmit()">
+    <label>City</label>
+    <mat-form-field>
+        <input matInput formControlName="city" type="text" placeholder="City">
+    </mat-form-field>
+    <button type="submit">Check weather</button>
+</form>
+
+<div *ngIf="weatherData.location">
+    <h3>Current weather</h3>
+    <img [src]="weatherData.current.condition.icon">
+    <div>{{weatherData.current.condition.text}}</div>
+</div>
+<div *ngIf="false">{{weatherData|json}}</div>
