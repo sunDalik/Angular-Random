@@ -1,14 +1,23 @@
 <form [formGroup]="weatherForm" (ngSubmit)="onSubmit()">
-    <label>City</label>
     <mat-form-field>
         <input matInput formControlName="city" type="text" placeholder="City">
     </mat-form-field>
-    <button type="submit">Check weather</button>
+    <mat-form-field>
+        <input matInput formControlName="days" type="text" placeholder="Days">
+        <mat-error *ngIf="weatherForm.value.days.errors?.max">Free API only allows to get up to 3 days of forecast
+        </mat-error>
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" [disabled]="weatherForm.invalid">Check weather</button>
 </form>
 
 <div *ngIf="weatherData.location">
     <h3>Current weather</h3>
-    <img [src]="weatherData.current.condition.icon">
-    <div>{{weatherData.current.condition.text}}</div>
+    <app-weather-display-block [weatherData]="weatherData.current"></app-weather-display-block>
+
+    <h3>Forecast</h3>
+    <div class="flexbox">
+        <app-weather-display-block *ngFor="let d of weatherData.forecast.forecastday" [weatherData]="d.day">
+        </app-weather-display-block>
+    </div>
 </div>
 <div *ngIf="false">{{weatherData|json}}</div>

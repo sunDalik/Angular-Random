@@ -1,0 +1,8 @@
+<div class="outer">
+    <div class="flexbox">
+        <img [src]="weatherData.condition.icon">
+        <div>{{weatherData.condition.text}}</div>
+        <div *ngIf="weatherData.temp_c !== undefined">{{weatherData.temp_c}}C</div>
+        <div *ngIf="weatherData.avgtemp_c !== undefined">{{weatherData.avgtemp_c}}C</div>
+    </div>
+</div>

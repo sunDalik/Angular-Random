@@ -8,13 +8,16 @@ import { WeatherAppComponent } from './weather/weather-app/weather-app.component
 import { MenuComponent } from './menu/menu.component';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import {MatButtonModule} from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { WeatherDisplayBlockComponent } from './weather/weather-display-block/weather-display-block.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WeatherAppComponent,
-    MenuComponent
+    MenuComponent,
+    WeatherDisplayBlockComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +25,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ReactiveFormsModule,
     NoopAnimationsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
